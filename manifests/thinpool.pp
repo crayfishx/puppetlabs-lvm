@@ -8,19 +8,11 @@ define lvm::thinpool (
   $activation = {},
 ) {
 
-#  if (!$size && !$extents) {
-#    fail("One of size or extents must be specified")
-#  }
-#
-#  if $size && $extents {
-#    fail("Can only specify one of size or extents")
-#  }
-
 
   logical_volume { $logical_volume:
     ensure       => present,
     volume_group => $volume_group,
-    thin         => true,
+    thinpool     => true,
     extents      => $extents,
     size         => $size,
   }
