@@ -23,6 +23,7 @@ define lvm::thinpool (
       group      => $volume_group,
       allocation => $allocation,
       activation => $activation,
+      require    => Logical_volume[$logical_volume],
     }
   }
 
